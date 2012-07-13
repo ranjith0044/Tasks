@@ -2,9 +2,7 @@ class Rect
 
     def initialize()
         
-   print "enter height and width of a rectangle:"
-   
-   
+    print "enter height and width of a rectangle:"
     h=gets.chomp.to_i
     w=gets.chomp.to_i
         @h=h
