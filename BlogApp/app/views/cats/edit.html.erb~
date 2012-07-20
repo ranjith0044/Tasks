@@ -1,0 +1,6 @@
+
+
+<%= link_to "View all Categories", cats_path %> | <%= link_to "Back to the Catogery", cat_path(@cat) %>
+
+<h3> Edit cat </h3>
+<%= render :partial => "form" %>

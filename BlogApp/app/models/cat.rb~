@@ -1,0 +1,26 @@
+class Cat < ActiveRecord::Base
+  attr_accessible :title
+  
+  default_scope :order =>"created_at DESC"
+  
+  
+  validates:title, :presence => true, :length => {:minimum =>5, :maximum=> 20}
+  
+  has_many :posts
+  
+  #this will give us the category named 'Article'
+  #if if doesn't exist, it will create and will return the same.
+  def self.default
+    find_or_create_by_name("Article")
+  end
+  
+  after_destroy do
+    manage_posts
+  end
+  
+  def manage_posts
+    posts.each do |post|
+      post.update_attribute(:cat_id, Cat.default.id)
+    end
+  end
+end

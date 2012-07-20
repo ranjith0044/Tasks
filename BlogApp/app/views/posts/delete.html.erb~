@@ -1,0 +1,5 @@
+<h3> Delete the Post </h3>
+
+<%= form_for @post, :url => post_path(@post), :method => :destroy %>
+
+

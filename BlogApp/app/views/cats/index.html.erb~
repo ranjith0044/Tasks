@@ -1,0 +1,30 @@
+
+
+<%= link_to "Add New Category", new_cat_path %>
+
+
+<%if @cats.empty? %>
+   No Categories found!
+   
+<% else %>
+
+    <table>
+      <tr>
+         <th>Category</th>
+         <th>Actions</th>
+      </tr>
+
+    <%@cats.each do |cat|%>
+      <tr>
+        <td><%= cat.name %></td>
+        <td>
+           <%= link_to "Edit", edit_cat_path(cat) %> |
+           <%= link_to "Delete", cat_path(cat), :method => :delete, :data => {:confirm => "Are You Sure?"} %>
+         </td>
+       </tr> 
+     <%end%>
+     
+     </table>
+
+
+<% end %>

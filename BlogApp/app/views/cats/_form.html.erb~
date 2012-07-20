@@ -1,0 +1,10 @@
+<% url, method = @cat.new_record? ? [cats_path, :post] : [cat_path(@cat), :put] %>
+
+<div style="padding: 10px; background-color: lightyellow; border: 2px solid yellow">
+    <%= form_for @cat, :url => url, :method => method do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        
+        <%= f.submit "Save Category" %>
+     <% end %>
+</div>
